@@ -109,7 +109,7 @@
 	$(document).foundation();
 	
 	// app css
-	__webpack_require__(222);
+	__webpack_require__(224);
 	
 	ReactDOM.render(React.createElement(TodoApp, null), document.getElementById('app'));
 
@@ -24805,7 +24805,7 @@
 	
 	var React = __webpack_require__(7);
 	
-	var TodoList = __webpack_require__(226);
+	var TodoList = __webpack_require__(222);
 	var TodoApp = React.createClass({
 	  displayName: 'TodoApp',
 	
@@ -24843,13 +24843,73 @@
 /* 222 */
 /***/ function(module, exports, __webpack_require__) {
 
+	'use strict';
+	
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	
+	var React = __webpack_require__(7);
+	var Todo = __webpack_require__(223);
+	
+	var TodoList = React.createClass({
+	  displayName: 'TodoList',
+	
+	  render: function render() {
+	    var todos = this.props.todos;
+	
+	    var renderTodos = function renderTodos() {
+	      return todos.map(function (todo) {
+	        return React.createElement(Todo, _extends({ key: todo.id }, todo));
+	      });
+	    };
+	    return React.createElement(
+	      'div',
+	      null,
+	      renderTodos()
+	    );
+	  }
+	});
+	
+	module.exports = TodoList;
+
+/***/ },
+/* 223 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var React = __webpack_require__(7);
+	
+	var Todo = React.createClass({
+	  displayName: 'Todo',
+	
+	  render: function render() {
+	    var _props = this.props,
+	        id = _props.id,
+	        text = _props.text;
+	
+	    return React.createElement(
+	      'div',
+	      null,
+	      id,
+	      '. ',
+	      text
+	    );
+	  }
+	});
+	
+	module.exports = Todo;
+
+/***/ },
+/* 224 */
+/***/ function(module, exports, __webpack_require__) {
+
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(223);
+	var content = __webpack_require__(225);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(225)(content, {});
+	var update = __webpack_require__(227)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -24866,10 +24926,10 @@
 	}
 
 /***/ },
-/* 223 */
+/* 225 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(224)();
+	exports = module.exports = __webpack_require__(226)();
 	// imports
 	
 	
@@ -24880,7 +24940,7 @@
 
 
 /***/ },
-/* 224 */
+/* 226 */
 /***/ function(module, exports) {
 
 	/*
@@ -24936,7 +24996,7 @@
 
 
 /***/ },
-/* 225 */
+/* 227 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -25188,66 +25248,6 @@
 			URL.revokeObjectURL(oldSrc);
 	}
 
-
-/***/ },
-/* 226 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-	
-	var React = __webpack_require__(7);
-	var Todo = __webpack_require__(227);
-	
-	var TodoList = React.createClass({
-	  displayName: 'TodoList',
-	
-	  render: function render() {
-	    var todos = this.props.todos;
-	
-	    var renderTodos = function renderTodos() {
-	      return todos.map(function (todo) {
-	        return React.createElement(Todo, _extends({ key: todo.id }, todo));
-	      });
-	    };
-	    return React.createElement(
-	      'div',
-	      null,
-	      renderTodos()
-	    );
-	  }
-	});
-	
-	module.exports = TodoList;
-
-/***/ },
-/* 227 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	var React = __webpack_require__(7);
-	
-	var Todo = React.createClass({
-	  displayName: 'Todo',
-	
-	  render: function render() {
-	    var _props = this.props,
-	        id = _props.id,
-	        text = _props.text;
-	
-	    return React.createElement(
-	      'div',
-	      null,
-	      id,
-	      '. ',
-	      text
-	    );
-	  }
-	});
-	
-	module.exports = Todo;
 
 /***/ }
 /******/ ]);
