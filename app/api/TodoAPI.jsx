@@ -22,7 +22,6 @@ module.exports = {
 
     // filter by showCompleted
     filterTodos = filterTodos.filter((todo) => {
-      console.log(showCompleted);
       return !todo.completed || showCompleted;
     });
 
